@@ -27,10 +27,12 @@ RUN apt-get update && apt-get -y install \
     useradd -u 911 -U -s /bin/false abc && \
     usermod -G users abc && \
     mkdir -p /config && \
+    mkdir -p /music && \
     chmod +x /etc/my_init.d/20adduser.sh && \
     chmod +x /etc/my_init.d/30lms.sh
 
 VOLUME /config
+VOLUME /music
 EXPOSE 3483 9000 9090
 
 CMD ["/sbin/my_init"]
